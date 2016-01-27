@@ -21,6 +21,9 @@ let balance (n : ('k, 'v) avlnode) : ('k, 'v) avlnode =
 let rec set (n : ('k, 'v) avlnode) (key : 'k) (value : 'v) : ('k, 'v) avlnode =
   Leaf
 
+let height (n : ('k, 'v) avlnode) : int =
+  0
+
 (* Return a list of tuples containing the elements of the tree *)
 let rec inorder (n : ('k, 'v) avlnode) : ('k * 'v) list =
   []
@@ -28,16 +31,14 @@ let rec inorder (n : ('k, 'v) avlnode) : ('k * 'v) list =
 
 
 (* Write the functions below (contains, height, add_all, sum) without using
-   any recursion.  Use the functions above, and map/filter/fold, to build up
-   the behavior from existing functions. *)
+any recursion.  Use the functions above, and map/filter/fold if necessary, to
+build up the behavior from existing functions. *)
 
 let contains (n : ('k, 'v) avlnode) (key : 'k) : bool = 
   false
 
-let height (n : ('k, 'v) avlnode) : int =
-  0
-
-(* set a list of key/value pairs, input as tuples, in the tree *)
+(* given an AVL tree and a list of key/value tuples, set all the given keys
+(first pair components) to the corresponding value (second pair components) *)
 let add_all (n : ('k, 'v) avlnode) (keys : ('k * 'v) list) : ('k, 'v) avlnode =
   Leaf
 

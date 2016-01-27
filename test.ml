@@ -3,9 +3,13 @@ open Avl
 open Expr
 open ExtLib
 
-(* a helper for testing primitive values (won't print datatypes well) *)
+(* A helper for testing primitive values (won't print datatypes well) *)
 let t_any name value expected = name>::
   (fun _ -> assert_equal expected value ~printer:dump);;
+
+(* Feel free to add any new testing functions you may need *)
+
+
 
 
 let a_tree = Node(0, "a", 5, Leaf, Leaf);;
@@ -31,8 +35,10 @@ let all_tests =
   get_tests @
   contains_tests @
   evaluate_tests
+  (* Your additional tests go here *)
 ;;
 
 let suite = "suite">:::all_tests;;
 
 run_test_tt_main suite
+

@@ -20,6 +20,7 @@ open Avl
 
     1 + x               Plus(Num(1), Variable("x"))
     x + x               Plus(Variable("x"), Variable("x"))
+    5(y + 10)           Times(Num(5), Plus(Variable("y"), Num(10)))
 
 *)
 
@@ -50,13 +51,17 @@ type arith =
   If there is a variable not contained in vars in the expression, throw an
   exception with failwith.
 
+  You can test most of this without implementing avlnodes fully by simply
+  testing expressions that don't have any variables.
+
 *)
 
 let rec evaluate (a : arith) (vars : (string, int) avlnode) : int =
   0
 
 (*
-  Next, write pretty, which takes an arithmetic expression and renders it.
+  Next, write pretty, which takes an arithmetic expression and renders it in
+  mathematical notation.
 
   It should print with minimal parentheses, assuming standard order of
   operations where multiplication binds more tightly than addition.
@@ -73,6 +78,11 @@ let rec evaluate (a : arith) (vars : (string, int) avlnode) : int =
   HINT: it may be helpful to write a helper that keeps track of whether the
   current expression is part of of plus or times expression as an additional
   argument.
+
+  NOTE: I expect lots of questions about "how pretty" your solution "has" to
+  be.  See how well you can do – I'm not giving a formal specification of
+  exactly what form you need to produce, though examples like the one above
+  should work nicely.  There are several reasonable answers here.
 *)
 
 let rec pretty (a : arith) : string =
